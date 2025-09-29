@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import os
+from keep_alive import keep_alive
 
 # --- BOT SETUP ---
 # It's highly recommended to use an environment variable for your token!
@@ -37,4 +38,5 @@ async def ping(ctx):
 if TOKEN is None:
     raise ValueError("DISCORD_TOKEN environment variable not set. Please set it to your bot's token.")
 
+keep_alive()
 bot.run(TOKEN)
