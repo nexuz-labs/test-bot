@@ -1,5 +1,5 @@
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
 import os
 from dotenv import load_dotenv
 from keep_alive import keep_alive
@@ -20,6 +20,9 @@ intents.message_content = True
 # Create the bot instance with a command prefix and the defined intents.
 bot = commands.Bot(command_prefix='!', intents=intents)
 
+# Define the channel ID for the "alive" message
+ALIVE_CHANNEL_ID = 1422237319754416259
+
 
 # --- EVENTS ---
 @bot.event
@@ -29,6 +32,19 @@ async def on_ready():
     print(f'Logged in as: {bot.user.name}')
     print(f'Bot ID: {bot.user.id}')
     print('------')
+    # Start the alive message loop
+    send_alive_message.start()
+
+
+# --- TASKS ---
+@tasks.loop(minutes=10)
+async def send_alive_message():
+    """Sends an 'alive' message to the specified channel every 10 minutes."""
+    channel = bot.get_channel(ALIVE_CHANNEL_ID)
+    if channel:
+        await channel.send("I'm alive!")
+    else:
+        print(f"Could not find channel with ID: {ALIVE_CHANNEL_ID}")
 
 
 # --- COMMANDS ---
