@@ -5,7 +5,7 @@ import os
 # --- BOT SETUP ---
 # It's highly recommended to use an environment variable for your token!
 # Most hosting services have a section for "Secrets" or "Environment Variables".
-TOKEN = os.getenv('MTQyMDgxMjIzMjg4NzExMTc0Mg.GrtY9R.tDOONGL9Rvmdl7nUE2s1RRs80JlrwdiquAMx18')
+TOKEN = 'MTQyMDgxMjIzMjg4NzExMTc0Mg.GrtY9R.tDOONGL9Rvmdl7nUE2s1RRs80JlrwdiquAMx18'
 
 # Define the bot's intents. This is required.
 # We need `message_content` to read messages.
@@ -32,9 +32,5 @@ async def ping(ctx):
     """A simple command that replies with Pong! to check if the bot is responsive."""
     await ctx.send('Pong! 🏓')
 
-
-# --- RUN THE BOT ---
-if TOKEN is None:
-    raise ValueError("DISCORD_TOKEN environment variable not set. Please set it to your bot's token.")
 
 bot.run(TOKEN)
