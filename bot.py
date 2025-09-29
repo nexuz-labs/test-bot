@@ -1,9 +1,13 @@
 import discord
 from discord.ext import commands
 import os
+from dotenv import load_dotenv
 from keep_alive import keep_alive
 
 # --- BOT SETUP ---
+# Load environment variables from .env file
+load_dotenv()
+
 # It's highly recommended to use an environment variable for your token!
 # Most hosting services have a section for "Secrets" or "Environment Variables".
 TOKEN = os.getenv('DISCORD_TOKEN')
