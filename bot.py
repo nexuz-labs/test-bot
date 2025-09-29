@@ -5,7 +5,7 @@ import os
 # --- BOT SETUP ---
 # It's highly recommended to use an environment variable for your token!
 # Most hosting services have a section for "Secrets" or "Environment Variables".
-TOKEN = os.getenv('DISCORD_TOKEN')
+TOKEN = os.getenv('MTQyMDgxMjIzMjg4NzExMTc0Mg.GrtY9R.tDOONGL9Rvmdl7nUE2s1RRs80JlrwdiquAMx18')
 
 # Define the bot's intents. This is required.
 # We need `message_content` to read messages.
